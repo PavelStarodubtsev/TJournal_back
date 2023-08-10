@@ -1,4 +1,43 @@
+user.controller - 
+user.service - бизнес логика для юзеров,
+user.module - какие ф-ции , декораторы, контроллеры есть у юзера
+
+
+
+
 1) Установил nest.js глобально на комп ,больше устанавливать его не нужно
 - npm i -g @nestjs/cli
 2) Создал новый проект для бека 
 - nest new project-name
+3) Создать шаблон CRUD - операций
+- nest g resource user
+
+4) Устанавливаем пакет class-validator для использования в Node.js проекте.
+   Этот пакет является частью экосистемы библиотеки class-transformer,
+  предназначенной для валидации и трансформации данных в TypeScript и JavaScript приложениях.
+  class-validator позволяет создавать декораторы для валидации классов и их свойств. 
+  
+- npm i class-validator
+
+5) Устанавливаем устанавливает инструменты для интеграции NestJS с TypeORM и PostgreSQL:
+
+ а) TypeORM - это ORM (Object-Relational Mapping) для TypeScript и JavaScript,
+  который позволяет работать с базами данных с использованием объектно-ориентированной абстракции.
+
+ б) typeorm: Это сам пакет TypeORM. Он предоставляет инструменты для работы с различными базами данных
+ с использованием TypeScript и JavaScript.
+
+ в) pg: Этот пакет представляет собой драйвер для PostgreSQL, одной из популярных реляционных баз данных.
+  этот пакет нужен для взаимодействия с PostgreSQL базой данных через TypeORM.
+
+- npm i @nestjs/typeorm typeorm pg
+
+
+
+
+
+
+// npm i sequelize sequelize-cli pg pg-hstore
+CREATE DATABASE tjournal OWNER pavel
+
+psql postgres
