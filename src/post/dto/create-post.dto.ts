@@ -1,4 +1,4 @@
-// Post - описываем какие поля должна содержать таблица
+// Post - описываем какие поля будут создаваться в таблице
 export class CreatePostDto {
   title: string;
   body: string;

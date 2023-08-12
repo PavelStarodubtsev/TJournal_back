@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import {
   Controller,
   Get,
@@ -6,10 +7,12 @@ import {
   Patch,
   Param,
   Delete,
+  Query,
 } from '@nestjs/common';
 import { PostService } from './post.service';
 import { CreatePostDto } from './dto/create-post.dto';
 import { UpdatePostDto } from './dto/update-post.dto';
+import { SearchPostDto } from './dto/search-post-dto';
 
 // http://localhost:7777/posts - адрес по которому отправляем запрос к БД
 @Controller('posts')
@@ -26,8 +29,18 @@ export class PostController {
     return this.postService.findAll();
   }
 
+  @Get('/popular')
+  getPopularPosts() {
+    return this.postService.popular();
+  }
+
+  @Get('/search')
+  searchPosts(@Query() dto: SearchPostDto) {
+    return this.postService.search(dto);
+  }
+
   @Get(':id')
-  findOne(@Param('id') id: string) {
+  findOne(@Param('id') id: number) {
     return this.postService.findOne(+id);
   }
 
