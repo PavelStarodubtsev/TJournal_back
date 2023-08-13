@@ -4,9 +4,10 @@ import {
   PrimaryGeneratedColumn,
   CreateDateColumn,
   UpdateDateColumn,
+  OneToMany,
 } from 'typeorm';
+import { CommentEntity } from '../../comment/entities/comment.entity';
 
-// описываем нашу таблицу, какие поля она содержит
 @Entity('users')
 export class UserEntity {
   @PrimaryGeneratedColumn()
@@ -15,8 +16,16 @@ export class UserEntity {
   @Column()
   fullName: string;
 
-  @Column()
+  @Column({
+    unique: true,
+  })
   email: string;
+
+  @OneToMany(() => CommentEntity, (comment) => comment.user, {
+    eager: false,
+    nullable: true,
+  })
+  comments: CommentEntity[];
 
   @Column({ nullable: true })
   password?: string;

@@ -1,10 +1,13 @@
 import {
-  Column,
-  CreateDateColumn,
   Entity,
+  Column,
   PrimaryGeneratedColumn,
+  CreateDateColumn,
   UpdateDateColumn,
+  ManyToOne,
 } from 'typeorm';
+import { OutputBlockData } from '../dto/create-post.dto';
+import { UserEntity } from '../../user/entities/user.entity';
 
 // описываем нашу таблицу, какие поля она содержит
 @Entity('posts')
@@ -15,8 +18,14 @@ export class PostEntity {
   @Column()
   title: string;
 
+  @Column({ type: 'jsonb' })
+  body: OutputBlockData[];
+
   @Column()
-  body: string;
+  description: string;
+
+  @ManyToOne(() => UserEntity, { eager: true })
+  user: UserEntity;
 
   @Column({
     default: 0,

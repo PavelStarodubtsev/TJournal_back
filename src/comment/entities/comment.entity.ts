@@ -1,14 +1,14 @@
-import { PostEntity } from 'src/post/entities/post.entity';
-import { UserEntity } from 'src/user/entities/user.entity';
 import {
-  Column,
-  CreateDateColumn,
   Entity,
-  JoinColumn,
-  ManyToOne,
+  Column,
   PrimaryGeneratedColumn,
+  CreateDateColumn,
   UpdateDateColumn,
+  ManyToOne,
+  JoinColumn,
 } from 'typeorm';
+import { UserEntity } from '../../user/entities/user.entity';
+import { PostEntity } from '../../post/entities/post.entity';
 
 // описываем нашу таблицу, какие поля она содержит
 @Entity('comments')

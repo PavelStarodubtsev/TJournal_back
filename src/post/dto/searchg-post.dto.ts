@@ -11,7 +11,6 @@
 // для получения нужных нам данныхи и сортировки их
 
 export class SearchPostDto {
-  id?: number;
   title?: string;
   body?: string;
   views?: 'DESC' | 'ASC';
